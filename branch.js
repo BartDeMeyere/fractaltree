@@ -40,7 +40,7 @@ class Point{
         var x = this.end.x + Math.cos(newangle) * this.len
         var y = this.end.y + Math.sin(newangle) * this.len
         var newEnd = new Point(x,y)
-        var right = new Branch(this.end , newEnd , newangle , this.len * .8 , color , this.width * .6)
+        var right = new Branch(this.end , newEnd , newangle , this.len * .8 , color , this.width * .8)
         
         subangle = random(-Math.PI/3,Math.PI/3)
         
@@ -48,7 +48,7 @@ class Point{
         var x = this.end.x + Math.cos(newangle) * this.len
         var y = this.end.y + Math.sin(newangle) * this.len
         var newEnd = new Point(x,y)
-        var left = new Branch(this.end , newEnd , newangle , this.len * .7 , color , this.width * .8)
+        var left = new Branch(this.end , newEnd , newangle , this.len * .8 , color , this.width * .8)
     
         return [right,left]
     
