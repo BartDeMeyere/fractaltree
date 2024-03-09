@@ -17,7 +17,7 @@ let pointA = new Point(canvas[0].width/2 , canvas[0].height)
 let pointB = new Point(canvas[0].width/2 , canvas[0].height - len)
 var tree = []
 let counter = 0
-let maxorder = 15
+let maxorder = 18
 let done = false
 let startWidth = 15
 
