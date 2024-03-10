@@ -1,4 +1,3 @@
-//select canvas and init properties
 let canvas = $("canvas")
 
 let c = $("canvas")[0].getContext("2d")
@@ -17,15 +16,15 @@ let pointA = new Point(canvas[0].width/2 , canvas[0].height)
 let pointB = new Point(canvas[0].width/2 , canvas[0].height - len)
 let tree = []
 let counter = 0
-let maxorder = 0//18
+let maxorder = 0
 let done = false
 let startWidth = 15
 
-
 renderCanvas()
 
-$("#renderfractal").on("click" , function(){
+$("#maxorder").on("change" , function(){
 
+    maxorder = parseInt(this.value)
     done = false;
     tree = [];
     startWidth = 15 
@@ -35,13 +34,6 @@ $("#renderfractal").on("click" , function(){
     pointB = new Point(canvas[0].width/2 , canvas[0].height - len)
     CreateBranches()
     renderCanvas()
-    $("#renderfractal").prop("disabled", true)
-
-})
-
-$("#maxorder").on("change" , function(){
-
-    maxorder = parseInt(this.value)
 
 })
 
@@ -64,7 +56,7 @@ function CreateBranches(){
     //create the first branch
     if(tree.length === 0){
 
-        tree.push(new Branch(pointA , pointB , -Math.PI/2 , len , "grey" , startWidth))
+        tree.push(new Branch(pointA , pointB , -Math.PI/2 , len , "Chocolate" , startWidth))
 
     }else{
 

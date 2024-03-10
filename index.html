@@ -8,22 +8,28 @@
 
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-        #renderfractal{
+        *{
 
-            top: 15px;
-            left: 15px;
+            color:white;
             font-family: Roboto;
-            padding: 5px;
-            cursor: pointer;
-       
         }
 
         .container{
 
             position: absolute;
             padding: 20px;
-            bottom: 10px;
+            top: 10px;
             left: 10px;
+            border:1px solid white;
+        }
+
+        .container div{
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;;
         }
 
         body{
@@ -35,9 +41,12 @@
 </head>
 <body>
     <div class="container">
-        <button id="renderfractal">render fractal</button>
-        <p></p>
-        <input type="number" min="1"  max="20" id="maxorder">
+        <div>
+            <div>recursion level:</div>
+            <div>
+            <input type="range" min="1" max="20" id="maxorder" value="1">
+            </div>
+        </div>
     </div>
     <canvas></canvas>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
