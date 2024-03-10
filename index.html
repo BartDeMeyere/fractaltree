@@ -10,7 +10,6 @@
 
         #renderfractal{
 
-            position: absolute;
             top: 15px;
             left: 15px;
             font-family: Roboto;
@@ -19,14 +18,27 @@
        
         }
 
+        .container{
+
+            position: absolute;
+            padding: 20px;
+            bottom: 10px;
+            left: 10px;
+        }
+
         body{
 
             overflow: hidden;
         }
+
     </style>
 </head>
 <body>
-    <button id="renderfractal">render fractal</button>
+    <div class="container">
+        <button id="renderfractal">render fractal</button>
+        <p></p>
+        <input type="number" min="1"  max="20" id="maxorder">
+    </div>
     <canvas></canvas>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="branch.js"></script>

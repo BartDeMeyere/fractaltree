@@ -12,12 +12,12 @@ canvas.attr('height' , innerHeight * devicePixelRatio)
 canvas.css("width" , 100 + "%")
 canvas.css("height" , 100 + "%")
 
-let len = 600
+let len = 400
 let pointA = new Point(canvas[0].width/2 , canvas[0].height)
 let pointB = new Point(canvas[0].width/2 , canvas[0].height - len)
-var tree = []
+let tree = []
 let counter = 0
-let maxorder = 18
+let maxorder = 0//18
 let done = false
 let startWidth = 15
 
@@ -30,12 +30,18 @@ $("#renderfractal").on("click" , function(){
     tree = [];
     startWidth = 15 
     counter = 0
-    len = 600
+    len = 400
     pointA = new Point(canvas[0].width/2 , canvas[0].height)
     pointB = new Point(canvas[0].width/2 , canvas[0].height - len)
     CreateBranches()
     renderCanvas()
     $("#renderfractal").prop("disabled", true)
+
+})
+
+$("#maxorder").on("change" , function(){
+
+    maxorder = parseInt(this.value)
 
 })
 
@@ -45,8 +51,6 @@ function random(min,max){
 }
 
 function CreateBranches(){
-
-    console.log(tree.length)
 
     //end fractal tree drawing
     if(counter > maxorder){
@@ -60,7 +64,7 @@ function CreateBranches(){
     //create the first branch
     if(tree.length === 0){
 
-        tree.push(new Branch(pointA , pointB , -Math.PI/2 , len , "Chocolate" , startWidth))
+        tree.push(new Branch(pointA , pointB , -Math.PI/2 , len , "grey" , startWidth))
 
     }else{
 
