@@ -9,10 +9,15 @@ export class Branch {
         this.width = width
         this.endX = this.startX + this.len * Math.cos(this.angle)
         this.endY = this.startY + this.len * Math.sin(this.angle)
-        this.baseEndX = this.endX 
+        this.baseEndX = this.endX
         this.baseEndY = this.endY
         this.finished = false
         this.minLen = 15
+        this.velocity = { 
+            x: (Math.random() - 0.5) * 30,
+            y: (Math.random() - 0.5) * 30 
+        }
+        this.damping = .98
         this.parent = null
     }
 
@@ -23,7 +28,7 @@ export class Branch {
 
         let left = new Branch(this.endX, this.endY, this.len * .75, this.randomAngle(this.angle, 1), this.width * .7)
         let right = new Branch(this.endX, this.endY, this.len * .75, this.randomAngle(this.angle, -1), this.width * .7)
-        left.parent = this 
+        left.parent = this
         right.parent = this
         return [left, right]
 
@@ -39,7 +44,6 @@ export class Branch {
     draw(ctx) {
 
         ctx.beginPath()
-
         ctx.strokeStyle = (this.len < this.minLen + 50) ? ctx.strokeStyle = "green" : ctx.strokeStyle = "#000"
         ctx.lineWidth = Math.max(this.len / 15, 1)
         ctx.lineCap = "round"
@@ -50,10 +54,16 @@ export class Branch {
 
     }
 
-    shake(){
+    shake() {
 
-        this.endX = this.baseEndX + (Math.random() - .5) * 3
-        this.endY = this.baseEndY + (Math.random() - .5) * 3
+        this.velocity.x += (this.baseEndX - this.endX) * .1
+        this.velocity.y += (this.baseEndY - this.endY) * .1
+
+        this.velocity.x *= this.damping
+        this.velocity.y *= this.damping
+
+        this.endX += this.velocity.x
+        this.endY += this.velocity.y
     }
- 
+
 }

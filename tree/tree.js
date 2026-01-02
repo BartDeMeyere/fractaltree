@@ -61,7 +61,7 @@ export class Tree {
             } else {
                 this.growFinished = true
                 console.log("we are done")
-                this.startShakeTree()
+                //this.startShakeTree()
             }
         }
     
@@ -69,9 +69,9 @@ export class Tree {
     }
     
 
-    startShakeTree() {
+    startShakeTree(amount) {
 
-        if(!this.growFinished)return
+       //if(!this.growFinished)return
 
         let  animate = () => {
 
